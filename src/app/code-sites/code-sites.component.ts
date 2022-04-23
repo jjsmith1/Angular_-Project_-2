@@ -9,7 +9,13 @@ import { SITES } from './codeSiteList';
 export class CodeSitesComponent implements OnInit {
   sites = SITES;
 
+  selectedSites?:CodeSite;
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSelect(codesite: CodeSite) : void {
+    this.selectedSites = codesite;
+  }
 }

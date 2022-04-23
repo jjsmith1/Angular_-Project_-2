@@ -1,7 +1,24 @@
-<h2>{{ site.description }}</h2>
-<div>
-  <label
-    >Rating:
-    <input [(ngModel)]="site.rating" placeholder="Rate Me Please!!!" />
-  </label>
+<h2>SITES</h2>
+
+
+<ul class="students">
+  <li *ngFor="let codesite of sites" (click)="onSelect(codesite)">
+    <a class="badge" href="{{ codesite.URL }}">{{ codesite.name }}</a>
+
+    <i>Rating : {{ codesite.rating }}</i>
+  </li>
+</ul>
+
+<div *ngIf="selectedSites">
+ 
+    <h2>{{selectedSites.name}} Details</h2>
+    <div><span>description: </span>{{selectedSites.description}}</div>
+    <div>
+        <label>URL: <a href="{{ selectedSites.URL }}">{{ selectedSites.URL }}</a>
+</label>
+      <label>rating:
+        <input [(ngModel)]="selectedSites.rating" placeholder="Rate Me Please!!!"/>
+      </label>
+    </div>
+  
 </div>
